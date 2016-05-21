@@ -1,14 +1,20 @@
+﻿using System;
 using System.Collections.Generic;
-using QuestionServiceWebApi.Interfaces;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Text;
+using System.Threading.Tasks;
+using QuestionServiceWebApi;
 
-namespace QuestionServiceWebApi
+namespace PairingTest.Unit.Tests.Web
 {
-    public class QuestionRepository : IQuestionRepository
+    public class TestResponseMessage
     {
 
-        public Questionnaire GetQuestionnaire()
+        public static HttpResponseMessage QuestionnaireResponse()
         {
-            return new Questionnaire
+            var questionnaire = new Questionnaire
             {
                 QuestionnaireTitle = "Geography Questions",
                 QuestionsText = new List<string>
@@ -19,6 +25,11 @@ namespace QuestionServiceWebApi
                                                "What is the capital of Germany?"
                                            }
             };
+            var response = new HttpResponseMessage()
+            {
+                Content = new ObjectContent<Questionnaire>(questionnaire, new JsonMediaTypeFormatter())
+            };
+            return response;
         }
     }
 }

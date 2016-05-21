@@ -34,6 +34,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -126,6 +127,10 @@
     </Compile>
     <Compile Include="Models\QuestionnaireViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Configuration.cs" />
+    <Compile Include="Services\IConfiguration.cs" />
+    <Compile Include="Services\IQuestionnaireService.cs" />
+    <Compile Include="Services\QuestionnaireService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
